@@ -8,20 +8,23 @@
       app
     >
       <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
+        <nuxt-link to="/">Главная</nuxt-link>
+        <nuxt-link to="/about">О нас</nuxt-link>
+        <nuxt-link to="/animals">Животные</nuxt-link>
+      </v-list>
+      <v-list>
+        <p>
+          В нашем роддоме ежедневно рождаются десятки милейших зверушек
+        </p>
+        <v-img src="left_widget_img.jpg" max-width="200"></v-img>
+      </v-list>
+      <v-list>
+        <h3>В нашем роддоме родилось:</h3>
+        <ul>
+          <li>добрейших коровок: {{ countAnimals.cows }}</li>
+          <li>милейших кроликов: {{ countAnimals.rabbits }}</li>
+          <li>пушистейших овечек: {{ countAnimals.sheeps }}</li>
+        </ul>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -29,7 +32,7 @@
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"/>
       <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
@@ -48,8 +51,13 @@
       >
         <v-icon>mdi-minus</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
+      <v-toolbar-title v-text="title"/>
+      <v-img
+        src="logo_farm.png"
+        max-width="70"
+        alt="logo"
+      ></v-img>
+      <v-spacer/>
       <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
@@ -59,7 +67,7 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <Nuxt />
+        <Nuxt/>
       </v-container>
     </v-main>
     <v-navigation-drawer
@@ -91,28 +99,13 @@
 <script>
 export default {
   name: 'DefaultLayout',
-  data () {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
-    }
-  }
+  computed: {
+    countAnimals() {
+      return this.$store.getters.allCountAnimals;
+    },
+  },
+  async mounted() {
+    await this.$store.dispatch('getCountAnimals')
+  },
 }
 </script>

@@ -9,7 +9,8 @@
             class="pa-2 display-flex"
             outlined
             tile
-          >{{ mainContent.text }}
+          >
+            {{ aboutContent.text }}
           </v-card>
         </v-col>
         <v-col>
@@ -18,7 +19,7 @@
             outlined
             tile
           >
-            <v-img src="home_page_img.jpg" max-width="620"></v-img>
+            <v-img src="vuetify-logo" max-width="30px"></v-img>
           </v-card>
         </v-col>
       </v-row>
@@ -28,14 +29,14 @@
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'about',
   computed: {
-    mainContent() {
-      return this.$store.getters.allMainContent;
+    aboutContent() {
+      return this.$store.getters.allAboutContent;
     },
   },
   async mounted() {
-    await this.$store.dispatch('getMainContent')
+    await this.$store.dispatch('getAboutContent')
   },
 }
 </script>
