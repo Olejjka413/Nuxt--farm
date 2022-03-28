@@ -7,7 +7,7 @@
     <v-card
       v-for="item in animals"
       class="mx-auto ma-6 d-flex"
-      max-width="344"
+      max-width="400"
     >
       <v-card-text>
         <div> {{ item.type }}</div>

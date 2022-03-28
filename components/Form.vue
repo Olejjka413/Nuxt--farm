@@ -60,19 +60,19 @@ export default {
       this.errors = [];
 
       if (!this.type) {
-        this.errors.push('Требуется указать тип.');
+        this.errors.push('Укажите вид');
       }
       if (!this.name) {
-        this.errors.push('Требуется указать имя.');
+        this.errors.push('Укажите имя');
       }
       if (!this.weight) {
-        this.errors.push('Требуется указать вес.');
+        this.errors.push('Укажите вес');
       }
       if (!this.color) {
-        this.errors.push('Требуется указать цвет.');
+        this.errors.push('Укажите цвет');
       }
       if (!this.sex) {
-        this.errors.push('Требуется указать пол.');
+        this.errors.push('Укажите пол');
       }
 
       e.preventDefault();
