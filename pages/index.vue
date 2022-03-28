@@ -1,24 +1,20 @@
 <template>
   <div>
-    <v-container class="grey lighten-5">
+    <v-container class="black">
       <v-row
         no-gutters
       >
         <v-col>
           <v-card
             class="pa-2 display-flex"
-            outlined
-            tile
           >{{ mainContent.text }}
           </v-card>
         </v-col>
         <v-col>
           <v-card
             class="pa-2 display-flex"
-            outlined
-            tile
           >
-            <v-img src="home_page_img.jpg" max-width="620"></v-img>
+            <v-img src="home_page_img.jpg" max-width="600"></v-img>
           </v-card>
         </v-col>
       </v-row>

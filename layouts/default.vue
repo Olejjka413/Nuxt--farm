@@ -6,13 +6,10 @@
       :clipped="clipped"
       fixed
       app
+      class="pl-10 pr-3"
+     
     >
-      <v-list>
-        <nuxt-link to="/">Главная</nuxt-link>
-        <nuxt-link to="/about">О нас</nuxt-link>
-        <nuxt-link to="/animals">Животные</nuxt-link>
-      </v-list>
-      <v-list>
+      <v-list  class="mt-10">
         <p>
           В нашем роддоме ежедневно рождаются десятки милейших зверушек
         </p>
@@ -32,38 +29,19 @@
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"/>
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
       <v-toolbar-title v-text="title"/>
       <v-img
-        src="logo_farm.png"
-        max-width="70"
+        src="vuetify-logo.svg"
+        max-width="40"
         alt="logo"
+        class="ml-5"
       ></v-img>
+      <v-list class="ml-10 transparent">
+        <nuxt-link class="ml-5" to="/">Главная</nuxt-link>
+        <nuxt-link class="ml-5" to="/about">О нас</nuxt-link>
+        <nuxt-link class="ml-5" to="/animals">Животные</nuxt-link>
+      </v-list>
       <v-spacer/>
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -76,23 +54,8 @@
       temporary
       fixed
     >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
+      
     </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
   </v-app>
 </template>
 
